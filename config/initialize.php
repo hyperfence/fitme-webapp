@@ -1,4 +1,15 @@
 <?php
+    if(session_id() == '') 
+    {
+        session_start();
+    }
+
     require "db_conn.php";
-    // Basic app configuration logic here
+    
+    if(!isset($_SESSION["LoggedIn"]))
+    {
+        $_SESSION["LoggedIn"] = false;
+    }
+
+    $loggedin = $_SESSION["LoggedIn"];
 ?>

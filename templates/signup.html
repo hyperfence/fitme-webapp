@@ -1,0 +1,23 @@
+<div class="login-cont">
+    <div class="login-box">
+        <img width="100px" src="media/images/add-user.png" />
+        <br/><br/>
+        <h2>Create your account!</h2>
+        <form method="POST" action="">
+            <input name="fname" class="form-input name-inp" type="text" required placeholder="First Name" />
+            <input name="lname" class="form-input name-inp" type="text" required placeholder="Last Name" />
+            <input name="email" class="form-input" type="email" required placeholder="Your Email" />
+            <select class="form-select" name="gender" id="gender">
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <input name="age" class="form-input meta-inp" type="number" required placeholder="Age" min="1" max="100" />
+            <input name="height" class="form-input meta-inp" type="number" required placeholder="Height" min="1" max="500" />
+            <input name="weight" class="form-input meta-inp" type="number" required placeholder="Weight" min="1" max="500" />
+            <br/><br/>
+            <button type="submit" name="signup-submit" class="form-btn">Create Account</button>
+        </form>
+    </div>
+</div>

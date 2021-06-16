@@ -13,10 +13,17 @@
     )";
     $db_user = "scott";
     $db_pass = "1234";
-    $con = oci_connect($db_user, $db_pass, $XE); 
+    $con = @oci_connect($db_user, $db_pass, $XE); 
     if(!$con) 
     {
-        die("Could not connect to Oracle: "); 
+        echo "
+        <div style=\"text-align: center; font-family: 'Helvetica'; margin-top: 150px;\">
+            <img width='220px' src='media/images/server-error.png'>
+            <br/><br/>
+            <h2 style=\"color: red;\">Server Error!</h2><br/>
+            <h4>Please ensure that your connection credentials are working fine!</h4>
+        </div>
+        ";
         exit();
     } 
 ?>
