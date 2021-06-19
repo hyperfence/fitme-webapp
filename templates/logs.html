@@ -1,0 +1,60 @@
+<div class="login-cont">
+    <div class="login-box workout-box">
+        <img width="100px" src="media/images/schedule.png" />
+        <br/><br/>
+        <h2>Your Logs</h2>
+        <br/><br/>
+        <div class="logs-div">
+            <h3>Today's Log:</h3>
+            <br/>
+            <?php 
+                $plansCount = 0;
+                while($row0 = oci_fetch_array($query_id_0, OCI_BOTH+OCI_RETURN_NULLS))
+                { 
+                    $exerciseDetails = array();
+                    $nutrientDetails = array();
+                    $wID = $row0['WORKOUT_ID'];
+                    $sql_query_t1 = "SELECT * FROM exercise_log WHERE workout_id = '$wID' AND user_id = '$userID' AND exercise_date >= trunc(sysdate) And exercise_date < trunc(sysdate) + 1";
+                    $query_id_t1 = oci_parse($con, $sql_query_t1); 		
+                    $result = oci_execute($query_id_t1); 
+                    $result_arr = oci_fetch_array($query_id_t1, OCI_BOTH+OCI_RETURN_NULLS);
+                    if($result == true && $result_arr != false)
+                    {
+                        continue;
+                    }
+                    $wName = $row0['NAME'];
+                    $sql_query_t1 = "SELECT * FROM workout_exercise WHERE workout_id = '$wID'";
+                    $query_id_t1 = oci_parse($con, $sql_query_t1); 		
+                    $result = oci_execute($query_id_t1);   
+                    while($row2 = oci_fetch_array($query_id_t1, OCI_BOTH+OCI_RETURN_NULLS))
+                    {
+                        $exID = $row2['EXERCISE_ID'];
+                        $targets = $row2['TARGET_REPS'];
+                        $sql_query_t2 = "SELECT * FROM exercise WHERE exercise_id = '$exID'";
+                        $query_id_t2 = oci_parse($con, $sql_query_t2); 		
+                        $result = oci_execute($query_id_t2); 
+                        $result_arr_t2 = oci_fetch_array($query_id_t2, OCI_BOTH+OCI_RETURN_NULLS);
+                        $exName = $result_arr_t2['NAME'];
+                        $exerciseDetails[$exName] = $exID;
+                    }
+                    $plansCount++;
+            ?>
+            <div class="plan-card">
+                <h3><?php echo $wName; ?></h3>
+                <div class="log-input-div">
+                    <form method="POST" action="">
+                    <?php foreach($exerciseDetails as $key => $value) { ?>
+                        <div class="log-input">
+                            <label><?php echo $key; ?>: </label>
+                            <input class="workout-target-inp" type="number" min="1" name="target_<?php echo $value; ?>" required placeholder="Reps Done" />
+                        </div>
+                    <?php } ?>    
+                    <input type="hidden" value="<?php echo $wID; ?>" name="workout-id" />
+                    <button type="submit" name="add-log" class="form-btn small-btn">Add Log</button>
+                    </form>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+</div>

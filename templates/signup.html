@@ -3,6 +3,12 @@
         <img width="100px" src="media/images/add-user.png" />
         <br/><br/>
         <h2>Create your account!</h2>
+        <?php if(!empty($error)){ ?>
+            <h4 style="color: red; margin: 25px auto; margin-bottom: 0px;"><?php echo $error; ?></h4>
+        <?php } ?>
+        <?php if(!empty($success)){ ?>
+            <h4 style="color: limegreen; margin: 25px auto; margin-bottom: 0px;"><?php echo $success; ?></h4>
+        <?php } ?>
         <form method="POST" action="">
             <input name="fname" class="form-input name-inp" type="text" required placeholder="First Name" />
             <input name="lname" class="form-input name-inp" type="text" required placeholder="Last Name" />

@@ -3,6 +3,9 @@
         <img width="100px" src="media/images/login.png" />
         <br/><br/>
         <h2>Login to your account!</h2>
+        <?php if(!empty($error)){ ?>
+            <h4 style="color: red; margin: 25px auto; margin-bottom: 0px;"><?php echo $error; ?></h4>
+        <?php } ?>
         <form method="POST" action="">
             <input name="email" class="form-input" type="email" required placeholder="Your email" />
             <button type="submit" name="login-submit" class="form-btn">Login</button>

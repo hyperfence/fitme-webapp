@@ -67,7 +67,7 @@ header h3 {
 header {
 	 color: #fff;
 	 padding-top: 5vw;
-	 padding-bottom: 12.5vw;
+	 padding-bottom: 20vw;
 	 text-align: center;
 }
 main {
@@ -76,8 +76,8 @@ main {
 	 position: relative;
 	 text-align: center;
 	 overflow: hidden;
-     padding: 150px 20px;
-     padding-bottom: 200px;
+     padding: 10px 20px;
+     padding-bottom: 150px;
 }
 footer {
 	 background: #eee;
@@ -104,6 +104,9 @@ small a {
     padding: 20px;
     max-width: 500px;
     margin: 50px auto;
+}
+.workout-box {
+    max-width: 700px;
 }
 .form-btn {
     color: #fff;
@@ -171,4 +174,76 @@ small a {
 }
 .home-sec-3 img {
     margin-bottom: 50px;
+}
+.checks-inp-div {
+    display: grid;
+    width: 500px;
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+}
+.checks-inp-div > div {
+    text-align: left;
+    display: inline-block;
+    padding: 5px;
+    font-weight: 600;
+    margin: 7.5px 2.5px;
+}
+.workout-target-inp {
+    display: inline-block;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #000;
+    color: #333;
+    padding: 2.5px 5px;
+    width: 100px;
+    margin: 0px 5px;
+    margin-bottom: 5px;
+}
+.plan-card {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 30px;
+    padding: 15px 10px;
+    width: 300px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+}
+.plan-card > div {
+    vertical-align: top;
+    display: inline-block;
+    width: 137.5px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+    padding: 0px 5px;
+}
+.plan-card-nutrients {
+    margin-left: -8px;
+    border-left: 3px solid #000;
+    padding-left: 10px;
+}
+
+.small-btn {
+    padding: 5px 10px;
+    margin: 15px auto;
+    font-size: 12px;
+    border-radius: 30px;
+}
+
+.red-btn {
+    font-size: 14px;
+    background-color: orangered;
+    border: 3px solid orangered;   
+}
+
+.red-btn:hover {
+    background-color: #fff;
+    color: orangered;
+}
+
+.logs-div {
+    border: 1px solid;
+    text-align: left;
+    padding: 5px;
 }

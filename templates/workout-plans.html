@@ -1,24 +1,8 @@
 <div class="login-cont">
     <div class="login-box workout-box">
-        <img width="100px" src="media/images/complete-reg.png" />
+        <img width="100px" src="media/images/training.png" />
         <br/><br/>
-        <h2>Setup Your Workout Plan</h2>
-        <form method="POST" action="">
-            <input name="wname" class="form-input" type="text" required placeholder="Plan Name" /><br/>
-            <div class="checks-inp-div">
-                <?php while($row = oci_fetch_array($query_id_1, OCI_BOTH+OCI_RETURN_NULLS)){ ?>
-                    <div class="checks-inp">
-                        <input type="checkbox" id="exercise_id_<?php echo $row['EXERCISE_ID']; ?>" name="exercises[]" value="<?php echo $row['EXERCISE_ID']; ?>">
-                        <label for="exercise_id_<?php echo $row['EXERCISE_ID']; ?>"> <?php echo $row['NAME']; ?></label>
-                        <input name="target_<?php echo $row['EXERCISE_ID']; ?>" class="workout-target-inp" type="number" placeholder="Target Reps" />
-                        <h5 style="margin: 5px">Muscle Group: <?php echo $row['MUSCLE_GROUP']; ?></h5>
-                    </div>
-                <?php } ?>
-            </div>
-            <br/><br/>
-            <button type="submit" name="add-plan-submit" class="form-btn">Add Workout Plan</button>
-        </form>
-        <hr/>
+        <h2>Your Workout Plans</h2>
         <br/><br/>
         <div class="plan-cards-div">
             <?php 
@@ -75,16 +59,19 @@
                 </div>
                 <form method="POST" action="">
                     <input type="hidden" name="workout-id" value="<?php echo $wID; ?>">
-                    <button type="submit" name="select-plan-submit" class="form-btn small-btn" style="margin-bottom: 0px;">Select Workout</button>
+                    <button type="submit" name="delete-plan-submit" class="form-btn small-btn red-btn" style="margin-bottom: 0px;"><i class="fas fa-trash"></i> Delete Plan</button>
                 </form>
             </div>
             <?php
                 }
                 if($plansCount == 0)
                 {
-                    echo "<h4>No Plans Found!</h4>";
+                    echo "<h4>No Plans Found! Click the button below to create one.</h4>";
                 }
             ?>
         </div>
+        <br/><br/>
+        <hr/>
+        <a style="text-decoration: none;" href="setup-workout.php"><button class="form-btn">Create New Plan</button></a>
     </div>
 </div>

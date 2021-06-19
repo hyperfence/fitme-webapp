@@ -11,7 +11,7 @@
         (SERVICE_NAME = XE)
         )
     )";
-    $db_user = "scott";
+    $db_user = "fitme";
     $db_pass = "1234";
     $con = @oci_connect($db_user, $db_pass, $XE); 
     if(!$con) 

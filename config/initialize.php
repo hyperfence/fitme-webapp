@@ -9,7 +9,11 @@
     if(!isset($_SESSION["LoggedIn"]))
     {
         $_SESSION["LoggedIn"] = false;
+        $_SESSION["UserID"] = 0;
+        $_SESSION["isInstructor"] = false;
     }
 
     $loggedin = $_SESSION["LoggedIn"];
+    $userID = $_SESSION["UserID"];
+    $isInstructor =  $_SESSION["isInstructor"];
 ?>
